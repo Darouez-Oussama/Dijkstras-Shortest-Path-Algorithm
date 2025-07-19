@@ -32,20 +32,33 @@ This project implements Dijkstra's shortest path algorithm in C++. It includes a
   - delete_edge(int n1, int n2)
   - get_edge_value(int n1, int n2) : get edge weight value 
   - set_edge_value(int n1, int n2, int v) : set edge weight value manually 
-- **Linked List**
-  - prepend(char * c ) : preappends data 
-  - std::ostream& operator<<(std::ostream& out , const slist& a) : print the priority queu using <<
-  - ~slist() : destructor of the priority queue 
+  
 - **Priority Queue**
-  - prepend(char * c ) : preappends data 
-  - std::ostream& operator<<(std::ostream& out , const slist& a) : print the priority queu using <<
-  - ~slist() : destructor of the priority queue 
+  - has two lists one for the visited vertecies and  the other for not visited vertecies sorted by priority 
+  - prepend_priority(int n, int p) : prepend to the priority list the node n with the distance to source p 
+  - prepend_visited(int n, int p) : prepend to the visited list the node n with the distance to source p
+  - priority_size() : gets the number of elements in the priority list 
+  - sorted() : checks if the priority list is sorted 
+  - sort_by_priority() : go through all the queue and swap not between nodes really but between the values of the nodes because it is easier to manupilate values better than swapping addresses ( nodes ) uintil all the priority node is swapped 
+  - remove_first_priority() : removes the prior node from the priority list 
+  - priority_min_node() : gets the minimal node distance 
+  - get_visited_priority() : gets visited vertex distance to source 
+  - get_priority_priority() : gets priority vertex distance to source 
+  - not_in_queue(int n) : checks if a node is in the priority queue 
+  - is_visited(int n) : checks if node is visited or not 
+  - node_priority(int n) : checks node priority 
+  - update_priority(int n, int p) : used we want to change the distance to source manually we need to update the node distance to source than sort again 
+  - ostream& operator<<(std::ostream& out, queue& q) : print the visited and priority lists when using <<
 
-- **Shortest Path Finding**
-  - Implements Dijkstra's algorithm
-  - Finds shortest paths from a source vertex
-  - Displays paths and distances
-  - Handles unreachable nodes
+- **Shortest Path Finding using Dijkestra Algorithm**
+  - path(graph* g, queue* q) : constructor to create queue graph distance and predecessor objects 
+  - shortest_path(int src) : method to give us the shortest path using Dijkestra Algorithm
+  first thing we will initialize the queue with the source node then we starting move through queue elements until the priority queue has no members 
+  so for the first iteration we will remove the source from the priority queue add it to the visited queue and search for its neighbours 
+  Now for the neighbours we will get edge values and update the ditance array with the minimal diastance following the dijkestra algorithm 
+  now prepend or update neighbours based on if they exist in the queue or not 
+  for next iterations we will get the minimal node remove it from the queue and add it to the visited list and search for its neighbours and redo the same process until we have visited all the nodes 
+  - path::print_path(int src, int dest): prints path from source to destination  
 
 ## Requirements
 

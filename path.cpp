@@ -23,17 +23,19 @@ void path::shortest_path(int src) {
     }
     dist[src] = 0;
     
-    // Add source to priority queue
+    // Ainitialize the priority queue with the source node 
     qu->prepend_priority(src, 0);
-    
+    // do this process while there are elements in the queue 
     while(qu->priority_size() > 0) {
         // Get node with minimum distance
         int u = qu->priority_min_node();
         int u_dist = qu->get_priority_priority();
+        // remove the prior node from priority queue after visited 
         qu->remove_first_priority();
+        // prepend the visited node to the visited queue 
         qu->prepend_visited(u, u_dist);
         
-        // Get neighbors of current node
+        // Get neighbors of current node (the visited now where am i right now)
         int* neighbors = gr->neghibours(u);
         
         // Process all neighbors
@@ -42,22 +44,26 @@ void path::shortest_path(int src) {
                 int v = i;
                 int weight = gr->get_edge_value(u, v);
                 
-                // Relaxation step
+                // update with the minimal distance 
                 if(!qu->is_visited(v) && dist[u] != INT_MAX && 
                    dist[u] + weight < dist[v]) {
                     dist[v] = dist[u] + weight;
                     pred[v] = u;
                     
                     // Update priority queue
+                    // if not in queue prepend the node 
                     if(qu->not_in_queue(v)) {
                         qu->prepend_priority(v, dist[v]);
                     } else {
+                        // else in queue update its distance to sort the priority queue again
                         qu->update_priority(v, dist[v]);
                     }
                 }
             }
         }
-        delete[] neighbors;  // Clean up neighbors array
+        // clean neighbours array 
+        delete[] neighbors; 
+        // sort queue 
         qu->sort_by_priority();
     }
 }
