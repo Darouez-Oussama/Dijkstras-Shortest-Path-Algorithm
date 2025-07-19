@@ -32,14 +32,14 @@ This project implements Dijkstra's shortest path algorithm in C++. It includes a
   - delete_edge(int n1, int n2)
   - get_edge_value(int n1, int n2) : get edge weight value 
   - set_edge_value(int n1, int n2, int v) : set edge weight value manually 
-
+- **Linked List**
+  - prepend(char * c ) : preappends data 
+  - std::ostream& operator<<(std::ostream& out , const slist& a) : print the priority queu using <<
+  - ~slist() : destructor of the priority queue 
 - **Priority Queue**
   - prepend(char * c ) : preappends data 
   - std::ostream& operator<<(std::ostream& out , const slist& a) : print the priority queu using <<
   - ~slist() : destructor of the priority queue 
-  - Custom implementation using linked lists
-  - Maintains visited nodes and distances
-  - Priority-based node selection
 
 - **Shortest Path Finding**
   - Implements Dijkstra's algorithm
