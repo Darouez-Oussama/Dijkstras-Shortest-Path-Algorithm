@@ -26,7 +26,7 @@ void demonstrate_graph(int size) {
     std::cout << "Adjacency matrix (left) and weight matrix (right):\n";
     std::cout << g << std::endl;
     
-    std::cout << "Number of edges: " << g.E() << std::endl;
+    std::cout << "Number of edges: " << g.get_number_of_connected_nodes() << std::endl;
     std::cout << "Graph is " << (g.is_connected() ? "connected" : "not connected") << std::endl;
 }
 
@@ -43,7 +43,7 @@ void demonstrate_paths(graph* g, int source) {
     p.shortest_path(source);
     
     // Print paths to all other vertices
-    for(int i = 0; i < g->V(); i++) {
+    for(int i = 0; i < g->get_graph_size(); i++) {
         if(i != source) {
             p.print_path(source, i);
         }

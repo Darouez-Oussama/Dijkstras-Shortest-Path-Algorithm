@@ -6,8 +6,8 @@
 path::path(graph* g, queue* q) {
     gr = g;
     qu = q;
-    dist = new int[gr->V()];
-    pred = new int[gr->V()];
+    dist = new int[gr->get_graph_size()];
+    pred = new int[gr->get_graph_size()];
 }
 
 path::~path() {
@@ -17,7 +17,7 @@ path::~path() {
 
 void path::shortest_path(int src) {
     // Initialize distances and predecessors
-    for(int i = 0; i < gr->V(); i++) {
+    for(int i = 0; i < gr->get_graph_size(); i++) {
         dist[i] = INT_MAX;
         pred[i] = -1;
     }
@@ -37,7 +37,7 @@ void path::shortest_path(int src) {
         int* neighbors = gr->neghibours(u);
         
         // Process all neighbors
-        for(int i = 0; i < gr->V(); i++) {
+        for(int i = 0; i < gr->get_graph_size(); i++) {
             if(neighbors[i] != -1) {  // If i is a neighbor
                 int v = i;
                 int weight = gr->get_edge_value(u, v);
