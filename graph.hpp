@@ -65,13 +65,13 @@ public:
      * @brief Gets number of vertices
      * @return Number of vertices
      */
-    int V();
+    int get_graph_size();
 
     /**
      * @brief Gets number of edges
      * @return Number of edges
      */
-    int E();
+    int get_number_of_connected_nodes();
 
     /**
      * @brief Checks if two vertices are adjacent

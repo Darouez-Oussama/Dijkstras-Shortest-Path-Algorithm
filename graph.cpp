@@ -106,11 +106,11 @@ bool graph::is_connected() {
     return true;
 }
 
-int graph::V() {
+int graph::get_graph_size() {
     return size;
 }
 
-int graph::E() {
+int graph::get_number_of_connected_nodes() {
     int e = 0;
     for(int i = 0; i < size; i++) {
         for(int j = i; j < size; j++) {

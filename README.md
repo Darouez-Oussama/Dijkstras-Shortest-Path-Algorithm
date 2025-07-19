@@ -2,25 +2,6 @@
 
 This project implements Dijkstra's shortest path algorithm in C++. It includes a weighted graph implementation using adjacency matrices and demonstrates finding shortest paths between vertices in randomly generated connected graphs.
 
-## Features
-
-- **Graph Implementation**
-  - Adjacency matrix representation
-  - Weighted edges
-  - Random connected graph generation
-  - Basic graph operations (add/remove edges, check connectivity)
-
-- **Priority Queue**
-  - Custom implementation using linked lists
-  - Maintains visited nodes and distances
-  - Priority-based node selection
-
-- **Shortest Path Finding**
-  - Implements Dijkstra's algorithm
-  - Finds shortest paths from a source vertex
-  - Displays paths and distances
-  - Handles unreachable nodes
-
 ## Project Structure
 
 ```
@@ -33,6 +14,35 @@ This project implements Dijkstra's shortest path algorithm in C++. It includes a
 ├── path.cpp        # Shortest path class implementation
 └── main.cpp        # Main program and demonstrations
 ```
+
+## Features
+
+- **Graph Implementation**
+  - prob() : generates a random boolean with 60% chance of getting 1 more 
+  - is_connected() : checks if the graph is connected 
+  - graph() : default constructer that allocate memory for the 2 matrices (weights , conncetion)
+  - graph(int s ) : constructor to allocate s*s for the 2 matrices and gives the connection matrix random connections and if 2 nodes are connected it give to tat connection random weight from 1 to 10 if no connrction we give 0 weight we do this process until the generated graph is connected 
+  - ~ graph (): deconstructor to delete both matrices 
+  - std::ostream& operator<<(std::ostream& out, const graph& gr) : when using the operator << with the graph we print the 2 matrices 
+  - get_graph_size() : get graph size 
+  - get_number_of_connected_nodes()
+  - adjacent() : makes two nodes adjacent 
+  - neghibours(int n) : return the neighbours of a node 
+  - add_edge(int n1, int n2) : adds an edge between 2 nodes with its random weight from 1 to 10 
+  - delete_edge(int n1, int n2)
+  - get_edge_value(int n1, int n2) : get edge weight value 
+  - set_edge_value(int n1, int n2, int v) : set edge weight value manually 
+
+- **Priority Queue**
+  - Custom implementation using linked lists
+  - Maintains visited nodes and distances
+  - Priority-based node selection
+
+- **Shortest Path Finding**
+  - Implements Dijkstra's algorithm
+  - Finds shortest paths from a source vertex
+  - Displays paths and distances
+  - Handles unreachable nodes
 
 ## Requirements
 
